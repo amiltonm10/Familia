@@ -1,0 +1,15 @@
+name: Notificar Família
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  chamar-cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Chamar cron_notificar.php
+        run: |
+          curl -s -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
+          "https://familia.free.nf/cron_notificar.php?chave=familia2026notif"
